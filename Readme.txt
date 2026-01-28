@@ -1,6 +1,3 @@
-Thanks for downloading this template!
-
-Template Name: Axis
-Template URL: https://bootstrapmade.com/axis-bootstrap-corporate-template/
-Author: BootstrapMade.com
-License: https://bootstrapmade.com/license/
+Site internet de l'entreprise : Vive l'animation
+Développeur du site : Allan Vemy
+Thème : Axis
