@@ -1,1147 +1,1449 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - Axis Bootstrap Template</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <title>Vive l'Animation ! – Animation & Services à domicile</title>
+  <meta name="description" content="Services d'animation pour personnes âgées : chant, quiz, jeux de société, jeux de lettres. Prestataire agréé APA et PCH.">
+  <meta name="keywords" content="animation, personnes âgées, Alzheimer, quiz, jeux, chant, APA, PCH, crédit impôt">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+    /* =============================================
+       VARIABLES & GLOBAL
+    ============================================= */
+    :root {
+      --teal:       #4cc9c0;
+      --teal-dark:  #2bada3;
+      --teal-light: #d4f5f2;
+      --pink:       #f06292;
+      --pink-light: #fce4ec;
+      --green:      #6abf69;
+      --green-dark: #4caf50;
+      --purple:     #9c6de4;
+      --yellow:     #fdd835;
+      --navy:       #1a3a4a;
+      --dark:       #2d2d2d;
+      --light-bg:   #f8fffe;
+      --white:      #ffffff;
+      --text-muted: #6c757d;
+      --default-font: 'Nunito', sans-serif;
+      --heading-font: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
 
-  <!-- =======================================================
-  * Template Name: Axis
-  * Template URL: https://bootstrapmade.com/axis-bootstrap-corporate-template/
-  * Updated: Sep 13 2025 with Bootstrap v5.3.8
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: var(--default-font);
+      color: var(--dark);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--heading-font);
+      color: var(--navy);
+    }
+
+    a { color: var(--teal-dark); text-decoration: none; transition: .3s; }
+    a:hover { color: var(--pink); }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .section-title .subtitle {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 12px;
+      background: var(--pink-light);
+      padding: 4px 14px;
+      border-radius: 20px;
+    }
+    .section-title h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    .section-title p {
+      color: var(--text-muted);
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* =============================================
+       HEADER / NAV
+    ============================================= */
+    #header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 999;
+      padding: 14px 0;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(76,201,192,0.18);
+      transition: all .4s;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-brand .brand-icon {
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, var(--teal), var(--pink));
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 1.2rem;
+    }
+    .nav-brand .brand-name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--navy);
+    }
+    .nav-brand .brand-name span { color: var(--teal-dark); }
+
+    .nav-link {
+      font-family: var(--heading-font);
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: #555 !important;
+      padding: 6px 14px !important;
+      border-radius: 6px;
+      transition: all .3s;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--teal-dark) !important;
+      background: var(--teal-light);
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      color: #fff !important;
+      border-radius: 24px;
+      padding: 8px 22px !important;
+    }
+    .nav-cta:hover {
+      background: linear-gradient(135deg, var(--teal-dark), var(--teal));
+      color: #fff !important;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(76,201,192,0.4);
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    #hero {
+      padding-top: 120px;
+      padding-bottom: 80px;
+      background: linear-gradient(135deg, #f0fefe 0%, #fce8f3 50%, #f0fff0 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(76,201,192,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(240,98,146,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      border: 1.5px solid var(--teal-light);
+      color: var(--teal-dark);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 12px rgba(76,201,192,0.15);
+    }
+    .hero-badge i { color: var(--pink); font-size: 1rem; }
+
+    #hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+    #hero h1 .highlight {
+      background: linear-gradient(135deg, var(--teal-dark), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    #hero .lead {
+      font-size: 1.15rem;
+      color: #555;
+      line-height: 1.75;
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+
+    .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      color: #fff;
+      font-weight: 700;
+      padding: 14px 30px;
+      border-radius: 30px;
+      font-size: 1rem;
+      transition: all .3s;
+      box-shadow: 0 8px 24px rgba(76,201,192,0.35);
+      text-decoration: none;
+    }
+    .btn-hero-primary:hover {
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 14px 32px rgba(76,201,192,0.45);
+    }
+
+    .btn-hero-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--navy);
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-size: 1rem;
+      border: 2px solid rgba(26,58,74,0.2);
+      transition: all .3s;
+      text-decoration: none;
+    }
+    .btn-hero-secondary:hover {
+      border-color: var(--teal);
+      color: var(--teal-dark);
+      background: var(--teal-light);
+    }
+
+    .hero-stat-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 24px 28px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      text-align: center;
+      border-bottom: 3px solid var(--teal);
+      transition: transform .3s;
+    }
+    .hero-stat-card:hover { transform: translateY(-5px); }
+    .hero-stat-card .stat-icon {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin: 0 auto 12px;
+    }
+    .hero-stat-card .stat-value {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-stat-card .stat-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .floating-note {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.18;
+      animation: floatNote 6s ease-in-out infinite;
+    }
+    @keyframes floatNote {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(10deg); }
+    }
+
+    /* =============================================
+       ABOUT
+    ============================================= */
+    #about {
+      padding: 100px 0;
+      background: var(--white);
+    }
+
+    .about-img-wrapper {
+      position: relative;
+    }
+    .about-img-wrapper img {
+      border-radius: 24px;
+      width: 100%;
+      object-fit: cover;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    }
+    .about-badge {
+      position: absolute;
+      bottom: -20px; right: -20px;
+      background: linear-gradient(135deg, var(--pink), #e91e8c);
+      color: #fff;
+      border-radius: 18px;
+      padding: 18px 22px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(240,98,146,0.4);
+    }
+    .about-badge .num {
+      font-size: 2rem; font-weight: 800; display: block; line-height: 1;
+    }
+    .about-badge .lbl {
+      font-size: 0.78rem; font-weight: 600; opacity: .9;
+    }
+
+    .about-content .tag {
+      display: inline-block;
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .about-content h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .about-content p {
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-size: 1.02rem;
+    }
+
+    .audience-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--light-bg);
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-bottom: 14px;
+      border-left: 4px solid var(--teal);
+      transition: all .3s;
+    }
+    .audience-item:hover { box-shadow: 0 6px 20px rgba(76,201,192,0.15); transform: translateX(4px); }
+    .audience-item .aud-icon {
+      width: 40px; height: 40px;
+      background: var(--teal);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .audience-item p { margin: 0; color: #555; font-size: 0.95rem; line-height: 1.5; }
+
+    /* =============================================
+       SERVICES
+    ============================================= */
+    #services {
+      padding: 100px 0;
+      background: var(--light-bg);
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 22px;
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.07);
+      transition: all .35s;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      border-radius: 22px 22px 0 0;
+    }
+    .service-card.color-teal::before   { background: linear-gradient(90deg, var(--teal), var(--teal-dark)); }
+    .service-card.color-pink::before   { background: linear-gradient(90deg, var(--pink), #e91e8c); }
+    .service-card.color-green::before  { background: linear-gradient(90deg, var(--green), var(--green-dark)); }
+    .service-card.color-purple::before { background: linear-gradient(90deg, var(--purple), #7c4dff); }
+    .service-card.color-yellow::before { background: linear-gradient(90deg, var(--yellow), #ff9800); }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    }
+    .service-icon {
+      width: 72px; height: 72px;
+      border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.9rem;
+      margin: 0 auto 22px;
+    }
+    .service-card.color-teal .service-icon   { background: var(--teal-light); color: var(--teal-dark); }
+    .service-card.color-pink .service-icon   { background: var(--pink-light); color: var(--pink); }
+    .service-card.color-green .service-icon  { background: #e8f5e9; color: var(--green-dark); }
+    .service-card.color-purple .service-icon { background: #ede7f6; color: var(--purple); }
+    .service-card.color-yellow .service-icon { background: #fffde7; color: #f57f17; }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--navy);
+    }
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      line-height: 1.65;
+      margin-bottom: 0;
+    }
+
+    /* =============================================
+       WHY CHOOSE (FEATURES)
+    ============================================= */
+    #why-us {
+      padding: 100px 0;
+      background: var(--white);
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 28px;
+      border-radius: 18px;
+      background: var(--light-bg);
+      border: 1.5px solid rgba(76,201,192,0.12);
+      transition: all .3s;
+      height: 100%;
+    }
+    .feature-item:hover {
+      box-shadow: 0 10px 32px rgba(76,201,192,0.18);
+      border-color: var(--teal);
+      transform: translateY(-4px);
+    }
+    .feature-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .feature-item h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--navy);
+    }
+    .feature-item p {
+      color: #666;
+      font-size: 0.93rem;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* =============================================
+       FINANCIAL AID
+    ============================================= */
+    #financial {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #e8fffe 0%, #fce4ec 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    #financial::before {
+      content: '💰';
+      position: absolute;
+      font-size: 10rem;
+      opacity: 0.05;
+      bottom: -20px; right: 60px;
+    }
+
+    .aid-card {
+      background: var(--white);
+      border-radius: 22px;
+      padding: 40px 36px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      transition: all .35s;
+      height: 100%;
+    }
+    .aid-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.14);
+    }
+    .aid-card .aid-icon {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 24px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem;
+    }
+    .aid-card.tax .aid-icon   { background: linear-gradient(135deg, #fff3e0, #ffe0b2); }
+    .aid-card.apa .aid-icon   { background: linear-gradient(135deg, var(--teal-light), #b2dfdb); }
+    .aid-card.pch .aid-icon   { background: linear-gradient(135deg, var(--pink-light), #f8bbd0); }
+
+    .aid-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--navy);
+    }
+    .aid-card p {
+      color: #666;
+      line-height: 1.7;
+      font-size: 0.95rem;
+      margin: 0;
+    }
+    .aid-big-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 800;
+      padding: 8px 22px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+
+    /* =============================================
+       GALLERY / TESTIMONIALS
+    ============================================= */
+    #gallery {
+      padding: 100px 0;
+      background: var(--light-bg);
+    }
+
+    .gallery-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.08);
+      transition: all .35s;
+      height: 100%;
+    }
+    .gallery-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 44px rgba(0,0,0,0.14);
+    }
+    .gallery-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .gallery-placeholder {
+      width: 100%;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+    .gallery-card .gallery-body {
+      padding: 24px;
+    }
+    .gallery-card h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--navy);
+    }
+    .gallery-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin: 0;
+      line-height: 1.55;
+    }
+
+    /* =============================================
+       CONTACT
+    ============================================= */
+    #contact {
+      padding: 100px 0;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+    #contact::before {
+      content: '';
+      position: absolute;
+      top: -120px; left: -120px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(76,201,192,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    #contact .section-title .subtitle {
+      background: rgba(76,201,192,0.2);
+      color: var(--teal);
+    }
+    #contact .section-title h2 { color: var(--white); }
+    #contact .section-title p  { color: rgba(255,255,255,0.65); }
+
+    .contact-info-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 36px 30px;
+      color: var(--white);
+      height: 100%;
+    }
+    .contact-info-card h3 {
+      color: var(--white);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .contact-detail .icon {
+      width: 44px; height: 44px;
+      background: rgba(76,201,192,0.2);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--teal);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .contact-detail .label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.55);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .contact-detail .value {
+      color: var(--white);
+      font-size: 0.98rem;
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .contact-form-card {
+      background: var(--white);
+      border-radius: 22px;
+      padding: 40px 36px;
+    }
+    .contact-form-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 28px;
+      color: var(--navy);
+    }
+    .form-control, .form-select {
+      border: 1.5px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 0.95rem;
+      transition: all .3s;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(76,201,192,0.15);
+    }
+    .btn-submit {
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 36px;
+      font-weight: 700;
+      font-size: 1rem;
+      width: 100%;
+      transition: all .3s;
+      cursor: pointer;
+    }
+    .btn-submit:hover {
+      background: linear-gradient(135deg, var(--teal-dark), var(--teal));
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(76,201,192,0.4);
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      background: #0f1f28;
+      color: rgba(255,255,255,0.65);
+      padding: 48px 0 28px;
+    }
+    footer .footer-brand .brand-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    footer .footer-brand .brand-name span { color: var(--teal); }
+    footer p { line-height: 1.7; font-size: 0.93rem; }
+    footer h5 { color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 16px; }
+    footer ul { list-style: none; padding: 0; margin: 0; }
+    footer ul li { margin-bottom: 10px; }
+    footer ul li a { color: rgba(255,255,255,0.6); font-size: 0.9rem; transition: .3s; }
+    footer ul li a:hover { color: var(--teal); }
+    footer .social-link {
+      width: 38px; height: 38px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.6);
+      margin-right: 8px;
+      transition: all .3s;
+      font-size: 1rem;
+    }
+    footer .social-link:hover {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: #fff;
+    }
+    footer hr { border-color: rgba(255,255,255,0.1); margin: 32px 0 20px; }
+    footer .copyright { font-size: 0.85rem; color: rgba(255,255,255,0.4); text-align: center; }
+
+    /* =============================================
+       SCROLL TOP
+    ============================================= */
+    #scrollTop {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 46px; height: 46px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all .3s;
+      box-shadow: 0 6px 20px rgba(76,201,192,0.4);
+      z-index: 999;
+      text-decoration: none;
+    }
+    #scrollTop.show { opacity: 1; visibility: visible; }
+    #scrollTop:hover { transform: translateY(-3px); color: #fff; }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 991px) {
+      #hero h1 { font-size: 2.4rem; }
+      .about-badge { bottom: -10px; right: 10px; }
+    }
+    @media (max-width: 767px) {
+      #hero { padding-top: 100px; padding-bottom: 60px; }
+      #hero h1 { font-size: 2rem; }
+      section { padding: 70px 0 !important; }
+      .section-title { margin-bottom: 44px; }
+      .section-title h2 { font-size: 1.75rem; }
+    }
+
+    /* =============================================
+       ANIMATIONS
+    ============================================= */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Musical note decoration */
+    .note-deco {
+      display: inline-block;
+      color: var(--pink);
+      font-style: normal;
+      animation: spin 3s linear infinite;
+    }
+    @keyframes spin {
+      0%,100% { transform: rotate(-5deg); }
+      50% { transform: rotate(5deg); }
+    }
+  </style>
 </head>
 
-<body class="index-page">
+<body>
 
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.webp" alt=""> -->
-        <h1 class="sitename">Axis</h1>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+  <!-- ====== HEADER ====== -->
+  <header id="header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg p-0">
+        <a href="#hero" class="nav-brand me-auto">
+          <div class="brand-icon">
+            <i class="bi bi-music-note-beamed"></i>
+          </div>
+          <div class="brand-name">Vive <span>l'Animation !</span></div>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <i class="bi bi-list fs-2"></i>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+          <ul class="navbar-nav gap-1 align-items-center mt-3 mt-lg-0">
+            <li class="nav-item"><a href="#hero"      class="nav-link active">Accueil</a></li>
+            <li class="nav-item"><a href="#about"     class="nav-link">À propos</a></li>
+            <li class="nav-item"><a href="#services"  class="nav-link">Prestations</a></li>
+            <li class="nav-item"><a href="#financial" class="nav-link">Aides financières</a></li>
+            <li class="nav-item"><a href="#gallery"   class="nav-link">Galerie</a></li>
+            <li class="nav-item ms-lg-2"><a href="#contact" class="nav-link nav-cta">Nous contacter</a></li>
+          </ul>
+        </div>
       </nav>
-
     </div>
   </header>
 
-  <main class="main">
+  <!-- ====== HERO ====== -->
+  <section id="hero">
+    <!-- Floating musical notes -->
+    <span class="floating-note" style="top:15%;left:8%;animation-delay:0s;font-size:3rem;">♪</span>
+    <span class="floating-note" style="top:60%;left:85%;animation-delay:1.5s;font-size:2.5rem;color:var(--pink);">♫</span>
+    <span class="floating-note" style="top:30%;left:92%;animation-delay:3s;font-size:2rem;">♩</span>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section light-background">
+    <div class="container">
+      <div class="row align-items-center gy-5">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <!-- Left content -->
+        <div class="col-lg-6">
+          <div class="hero-badge fade-up visible">
+            <i class="bi bi-heart-fill"></i>
+            Services à domicile &amp; en établissement
+          </div>
+          <h1 class="fade-up visible">
+            Des animations joyeuses pour<br>
+            <span class="highlight">mieux vivre ensemble</span>
+          </h1>
+          <p class="lead fade-up visible">
+            Vive l'Animation ! propose des prestations d'animation sur-mesure pour les personnes âgées : chant, quiz, jeux de société, jeux de lettres — dans un cadre chaleureux et bienveillant.
+          </p>
+          <div class="d-flex flex-wrap gap-3 fade-up visible">
+            <a href="#contact" class="btn-hero-primary">
+              <i class="bi bi-calendar-check"></i> Prendre rendez-vous
+            </a>
+            <a href="#services" class="btn-hero-secondary">
+              <i class="bi bi-play-circle"></i> Découvrir mes services
+            </a>
+          </div>
+        </div>
 
-        <div class="row align-items-center">
-          <div class="col-lg-6">
-            <div class="hero-content">
-              <h1 data-aos="fade-up" data-aos-delay="200">Transform Your Business Vision Into Reality</h1>
-              <p data-aos="fade-up" data-aos-delay="300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-              <div class="hero-cta" data-aos="fade-up" data-aos-delay="400">
-                <a href="#about" class="btn-primary">Get Started Today</a>
-                <a href="#https://www.youtube.com/watch?v=Y7f98aduVJ8" class="btn-secondary glightbox">
-                  <i class="bi bi-play-circle"></i>
-                  Watch Demo
-                </a>
-              </div>
-              <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
-                <div class="stat-item">
-                  <div class="stat-number">500+</div>
-                  <div class="stat-label">Successful Projects</div>
+        <!-- Right: stat cards -->
+        <div class="col-lg-6">
+          <div class="row g-4">
+            <div class="col-6 fade-up visible">
+              <div class="hero-stat-card">
+                <div class="stat-icon" style="background:#d4f5f2;color:var(--teal-dark);">
+                  <i class="bi bi-music-note-list"></i>
                 </div>
-                <div class="stat-item">
-                  <div class="stat-number">98%</div>
-                  <div class="stat-label">Client Satisfaction</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-number">10+</div>
-                  <div class="stat-label">Years Experience</div>
-                </div>
+                <div class="stat-value">4+</div>
+                <div class="stat-label">Types d'animations</div>
               </div>
             </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="hero-image" data-aos="fade-left" data-aos-delay="300">
-              <img src="assets/img/about/about-square-10.webp" alt="Business Success" class="img-fluid">
-              <div class="floating-card" data-aos="zoom-in" data-aos-delay="600">
-                <div class="card-icon">
-                  <i class="bi bi-graph-up-arrow"></i>
+            <div class="col-6 fade-up visible">
+              <div class="hero-stat-card" style="border-bottom-color:var(--pink);">
+                <div class="stat-icon" style="background:var(--pink-light);color:var(--pink);">
+                  <i class="bi bi-people-fill"></i>
                 </div>
-                <div class="card-content">
-                  <h5>Revenue Growth</h5>
-                  <div class="growth-percentage">+45%</div>
+                <div class="stat-value">100%</div>
+                <div class="stat-label">Dédié au bien-être</div>
+              </div>
+            </div>
+            <div class="col-6 fade-up visible">
+              <div class="hero-stat-card" style="border-bottom-color:var(--green-dark);">
+                <div class="stat-icon" style="background:#e8f5e9;color:var(--green-dark);">
+                  <i class="bi bi-piggy-bank"></i>
                 </div>
+                <div class="stat-value">50%</div>
+                <div class="stat-label">Crédit d'impôt</div>
+              </div>
+            </div>
+            <div class="col-6 fade-up visible">
+              <div class="hero-stat-card" style="border-bottom-color:var(--purple);">
+                <div class="stat-icon" style="background:#ede7f6;color:var(--purple);">
+                  <i class="bi bi-heart"></i>
+                </div>
+                <div class="stat-value">APA</div>
+                <div class="stat-label">& PCH acceptés</div>
               </div>
             </div>
           </div>
         </div>
 
       </div>
+    </div>
+  </section>
 
-    </section><!-- /Hero Section -->
+  <!-- ====== ABOUT ====== -->
+  <section id="about">
+    <div class="container">
 
-    <!-- About Section -->
-    <section id="about" class="about section">
+      <div class="section-title fade-up">
+        <span class="subtitle">À propos</span>
+        <h2>Qui suis-je ?</h2>
+        <p>Une animatrice passionnée au service du bien-être des personnes âgées, avec une approche douce, joyeuse et personnalisée.</p>
+      </div>
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="subtitle">About</span>
-        <h2>About Us</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam</p>
-      </div><!-- End Section Title -->
+      <div class="row align-items-center gy-5 gx-5">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row align-items-center">
-          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
-            <div class="content">
-              <h2>Crafting Excellence Through Innovation and Dedication</h2>
-              <p class="lead">We are passionate professionals committed to delivering exceptional results that exceed expectations and drive meaningful transformation.</p>
-
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-              <div class="stats-row">
-                <div class="stat-item">
-                  <div class="stat-number purecounter" data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"></div>
-                  <div class="stat-label">Years Experience</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-number purecounter" data-purecounter-start="0" data-purecounter-end="850" data-purecounter-duration="1"></div>
-                  <div class="stat-label">Projects Completed</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-number purecounter" data-purecounter-start="0" data-purecounter-end="240" data-purecounter-duration="1"></div>
-                  <div class="stat-label">Happy Clients</div>
-                </div>
-              </div>
-
-              <div class="cta-section">
-                <a href="#" team="" class="btn-outline">Meet Our Team</a>
-              </div>
+        <!-- Image column -->
+        <div class="col-lg-5 fade-up">
+          <div class="about-img-wrapper">
+            <!-- Placeholder for a photo — replace src with real image path -->
+            <div style="height:420px;background:linear-gradient(135deg,var(--teal-light),var(--pink-light));border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:6rem;">🎵</div>
+            <div class="about-badge">
+              <span class="num">❤️</span>
+              <span class="lbl">Animatrice<br>certifiée</span>
             </div>
           </div>
+        </div>
 
-          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
-            <div class="image-wrapper">
-              <img src="assets/img/about/about-square-12.webp" alt="About us" class="img-fluid">
-              <div class="floating-card" data-aos="zoom-in" data-aos-delay="500">
-                <div class="card-content">
-                  <div class="icon">
-                    <i class="bi bi-award"></i>
-                  </div>
-                  <div class="text">
-                    <h4>Award Winning</h4>
-                    <p>Recognized for excellence in our industry</p>
-                  </div>
-                </div>
-              </div>
+        <!-- Text column -->
+        <div class="col-lg-7 fade-up">
+          <div class="about-content">
+            <span class="tag">Je me présente</span>
+            <h2>Une animation joyeuse, douce et engagée</h2>
+            <p>
+              Bienvenue ! Je suis animatrice spécialisée dans l'accompagnement des personnes âgées, notamment celles touchées par la maladie d'Alzheimer ou des troubles cognitifs apparentés. Ma mission : apporter de la joie, du lien social et de la stimulation cognitive à travers des activités adaptées.
+            </p>
+            <p>
+              Chaque séance est pensée pour respecter le rythme et les capacités de chacun, dans un cadre bienveillant, sécurisant et plein de bonne humeur.
+            </p>
+
+            <h4 class="mt-4 mb-3" style="font-size:1rem;font-weight:700;color:var(--navy);">À qui je m'adresse ?</h4>
+
+            <div class="audience-item">
+              <div class="aud-icon"><i class="bi bi-person-heart"></i></div>
+              <p>Personnes âgées isolées ayant des troubles cognitifs, maladie d'Alzheimer et apparentée.</p>
+            </div>
+            <div class="audience-item" style="border-left-color:var(--pink);">
+              <div class="aud-icon" style="background:var(--pink);"><i class="bi bi-people"></i></div>
+              <p>Aidants familiaux, en leur offrant un relais, un soutien et des outils pour accompagner leur proche au quotidien.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== SERVICES ====== -->
+  <section id="services">
+    <div class="container">
+
+      <div class="section-title fade-up">
+        <span class="subtitle">Mes prestations</span>
+        <h2>Ce que je propose</h2>
+        <p>Des animations variées, adaptées à chaque personne, pour stimuler la mémoire, la créativité et le lien social.</p>
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-lg-4 col-md-6 fade-up">
+          <div class="service-card color-pink">
+            <div class="service-icon"><i class="bi bi-music-note-beamed"></i></div>
+            <h3>Prestation de chant</h3>
+            <p>Sessions de chant adaptées, favorisant la mémoire émotionnelle et le bien-être. Des mélodies familières pour raviver des souvenirs précieux.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 fade-up">
+          <div class="service-card color-teal">
+            <div class="service-icon"><i class="bi bi-patch-question"></i></div>
+            <h3>Toutes sortes de Quiz</h3>
+            <p>Quiz thématiques stimulants et ludiques : culture générale, histoire, nature… Pour exercer la mémoire tout en s'amusant en groupe.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 fade-up">
+          <div class="service-card color-green">
+            <div class="service-icon"><i class="bi bi-dice-5"></i></div>
+            <h3>Jeux de société</h3>
+            <p>Sélection de jeux adaptés favorisant la concentration, la logique et les échanges. Idéal pour créer du lien et de la convivialité.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 fade-up">
+          <div class="service-card color-purple">
+            <div class="service-icon"><i class="bi bi-alphabet"></i></div>
+            <h3>Jeux de lettres</h3>
+            <p>Mots croisés, anagrammes, jeux de mots… Des activités qui stimulent le langage et la créativité dans la bonne humeur.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 fade-up">
+          <div class="service-card color-yellow">
+            <div class="service-icon"><i class="bi bi-house-heart"></i></div>
+            <h3>Interventions à domicile</h3>
+            <p>Je me déplace directement chez vous ou en établissement, pour des séances confortables dans un environnement familier.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 fade-up">
+          <div class="service-card color-teal">
+            <div class="service-icon"><i class="bi bi-person-check"></i></div>
+            <h3>Accompagnement des aidants</h3>
+            <p>Conseils et outils pour les aidants familiaux, afin de mieux accompagner leur proche au quotidien avec sérénité.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====== WHY CHOOSE ====== -->
+  <section id="why-us">
+    <div class="container">
+
+      <div class="section-title fade-up">
+        <span class="subtitle">Pourquoi nous choisir</span>
+        <h2>Mon engagement pour vous</h2>
+        <p>Une approche humaine et professionnelle, entièrement dédiée au bien-être de vos proches.</p>
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-lg-4 col-md-6 fade-up">
+          <div class="feature-item">
+            <div class="feature-icon"><i class="bi bi-shield-heart"></i></div>
+            <div>
+              <h4>Approche bienveillante</h4>
+              <p>Chaque séance est menée avec douceur, respect et bonne humeur, en s'adaptant aux besoins de chaque personne.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 fade-up">
+          <div class="feature-item">
+            <div class="feature-icon" style="background:linear-gradient(135deg,var(--pink),#e91e8c);"><i class="bi bi-stars"></i></div>
+            <div>
+              <h4>Animations sur-mesure</h4>
+              <p>Les activités sont adaptées aux capacités cognitives et aux préférences de chaque participant pour une expérience enrichissante.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 fade-up">
+          <div class="feature-item">
+            <div class="feature-icon" style="background:linear-gradient(135deg,var(--green),var(--green-dark));"><i class="bi bi-patch-check"></i></div>
+            <div>
+              <h4>Prestataire agréé</h4>
+              <p>Agréé pour les aides APA et PCH, avec éligibilité au crédit d'impôt à 50% pour faciliter l'accès à mes services.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 fade-up">
+          <div class="feature-item">
+            <div class="feature-icon" style="background:linear-gradient(135deg,var(--purple),#7c4dff);"><i class="bi bi-brain"></i></div>
+            <div>
+              <h4>Stimulation cognitive</h4>
+              <p>Des activités spécialement choisies pour maintenir et stimuler les capacités cognitives des personnes en perte d'autonomie.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 fade-up">
+          <div class="feature-item">
+            <div class="feature-icon" style="background:linear-gradient(135deg,#ff9800,#f57f17);"><i class="bi bi-geo-alt"></i></div>
+            <div>
+              <h4>Intervention à domicile</h4>
+              <p>Je me déplace chez vous, en EHPAD ou en résidence senior, pour des séances dans un cadre familier et rassurant.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 fade-up">
+          <div class="feature-item">
+            <div class="feature-icon" style="background:linear-gradient(135deg,#26c6da,#00838f);"><i class="bi bi-chat-heart"></i></div>
+            <div>
+              <h4>Lien social & joie</h4>
+              <p>Créer du lien, partager des rires et des émotions positives — parce que le bonheur au quotidien, ça ne s'improvise pas.</p>
             </div>
           </div>
         </div>
 
       </div>
 
-    </section><!-- /About Section -->
+    </div>
+  </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services section">
+  <!-- ====== FINANCIAL AID ====== -->
+  <section id="financial">
+    <div class="container">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="subtitle">Services</span>
-        <h2>What We Do Offer</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-5">
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item">
-              <div class="service-icon">
-                <i class="bi bi-graph-up-arrow"></i>
-              </div>
-              <h3>Strategic Consulting</h3>
-              <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam.</p>
-              <a href="service-details.html" class="service-link">
-                Learn More <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item">
-              <div class="service-icon">
-                <i class="bi bi-palette"></i>
-              </div>
-              <h3>Brand Development</h3>
-              <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation.</p>
-              <a href="service-details.html" class="service-link">
-                Learn More <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item">
-              <div class="service-icon">
-                <i class="bi bi-code-slash"></i>
-              </div>
-              <h3>Digital Solutions</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris vitae congue nulla. Proin eget tortor risus vestibulum.</p>
-              <a href="service-details.html" class="service-link">
-                Learn More <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item">
-              <div class="service-icon">
-                <i class="bi bi-megaphone"></i>
-              </div>
-              <h3>Marketing Strategy</h3>
-              <p>Vivamus magna justo lacinia eget consectetur sed convallis at tellus. Cras ultricies ligula sed magna dictum porta.</p>
-              <a href="service-details.html" class="service-link">
-                Learn More <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item">
-              <div class="service-icon">
-                <i class="bi bi-people"></i>
-              </div>
-              <h3>Team Building</h3>
-              <p>Donec rutrum congue leo eget malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.</p>
-              <a href="service-details.html" class="service-link">
-                Learn More <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item">
-              <div class="service-icon">
-                <i class="bi bi-bar-chart"></i>
-              </div>
-              <h3>Data Analytics</h3>
-              <p>Nulla porttitor accumsan tincidunt. Mauris blandit aliquet elit eget tincidunt nibh pulvinar a. Sed porttitor lectus nibh.</p>
-              <a href="service-details.html" class="service-link">
-                Learn More <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-
+      <div class="section-title fade-up">
+        <span class="subtitle">Aides financières</span>
+        <h2>Des solutions pour financer mes services</h2>
+        <p>Plusieurs dispositifs existent pour vous aider à financer les animations à domicile. N'hésitez pas à me contacter pour en savoir plus.</p>
       </div>
 
-    </section><!-- /Services Section -->
+      <div class="row g-4 justify-content-center">
 
-    <!-- Why Us Section -->
-    <section id="why-us" class="why-us section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="subtitle">Why Us</span>
-        <h2>Why Choose Us</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
-            <div class="content">
-              <h2>Why Partner With Us</h2>
-              <p>We deliver exceptional results through proven expertise, cutting-edge innovation, and unwavering commitment to your success. Our comprehensive approach ensures sustainable growth and competitive advantage.</p>
-            </div>
-          </div>
-          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
-            <div class="image-wrapper">
-              <img src="assets/img/about/about-8.webp" alt="Professional team collaboration" class="img-fluid">
-            </div>
+        <div class="col-lg-4 col-md-6 fade-up">
+          <div class="aid-card tax">
+            <div class="aid-icon">🐷</div>
+            <div class="aid-big-badge">50%</div>
+            <h3>Crédit d'impôt</h3>
+            <p>Bénéficiez d'un crédit d'impôt de 50% sur les dépenses engagées pour des services à la personne, directement déductible de vos impôts.</p>
           </div>
         </div>
 
-        <div class="features-grid" data-aos="fade-up" data-aos-delay="400">
-          <div class="row g-5">
+        <div class="col-lg-4 col-md-6 fade-up">
+          <div class="aid-card apa">
+            <div class="aid-icon">📩</div>
+            <h3>APA</h3>
+            <p>L'Allocation Personnalisée d'Autonomie (APA) peut financer une partie de mes prestations pour les personnes de 60 ans et plus en perte d'autonomie.</p>
+          </div>
+        </div>
 
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-              <div class="feature-item">
-                <div class="icon-wrapper">
-                  <i class="bi bi-lightbulb"></i>
-                </div>
-                <div class="feature-content">
-                  <h3>Innovation Leadership</h3>
-                  <p>We stay ahead of industry trends, implementing cutting-edge technologies and methodologies that drive transformational results for your business growth.</p>
-                </div>
-              </div>
-            </div><!-- End Feature Item -->
-
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-              <div class="feature-item">
-                <div class="icon-wrapper">
-                  <i class="bi bi-award"></i>
-                </div>
-                <div class="feature-content">
-                  <h3>Proven Expertise</h3>
-                  <p>Our team brings decades of combined experience across multiple industries, ensuring strategic insights and tactical execution that delivers measurable outcomes.</p>
-                </div>
-              </div>
-            </div><!-- End Feature Item -->
-
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-              <div class="feature-item">
-                <div class="icon-wrapper">
-                  <i class="bi bi-headset"></i>
-                </div>
-                <div class="feature-content">
-                  <h3>24/7 Dedicated Support</h3>
-                  <p>Round-the-clock availability with personalized attention from dedicated account managers who understand your unique challenges and objectives.</p>
-                </div>
-              </div>
-            </div><!-- End Feature Item -->
-
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-              <div class="feature-item">
-                <div class="icon-wrapper">
-                  <i class="bi bi-graph-up-arrow"></i>
-                </div>
-                <div class="feature-content">
-                  <h3>Cost Efficiency</h3>
-                  <p>Streamlined processes and intelligent resource allocation reduce overhead while maximizing ROI, delivering premium results within your budget parameters.</p>
-                </div>
-              </div>
-            </div><!-- End Feature Item -->
-
+        <div class="col-lg-4 col-md-6 fade-up">
+          <div class="aid-card pch">
+            <div class="aid-icon">💜</div>
+            <h3>PCH</h3>
+            <p>La Prestation de Compensation du Handicap (PCH) peut également couvrir mes services, pour les personnes en situation de handicap.</p>
           </div>
         </div>
 
       </div>
 
-    </section><!-- /Why Us Section -->
+      <div class="text-center mt-5 fade-up">
+        <p class="mb-3" style="color:#555;font-size:1.05rem;">Vous souhaitez savoir si vous êtes éligible ? Contactez-moi pour un accompagnement personnalisé.</p>
+        <a href="#contact" class="btn-hero-primary" style="display:inline-flex;">
+          <i class="bi bi-envelope"></i> Me contacter
+        </a>
+      </div>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
+    </div>
+  </section>
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="subtitle">Portfolio</span>
-        <h2>Check Our Portfolio</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam</p>
-      </div><!-- End Section Title -->
+  <!-- ====== GALLERY ====== -->
+  <section id="gallery">
+    <div class="container">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="section-title fade-up">
+        <span class="subtitle">Galerie</span>
+        <h2>Moments partagés</h2>
+        <p>Quelques instants de joie et de partage lors de mes animations. Chaque séance est unique et pleine de belles émotions.</p>
+      </div>
 
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="200">
-            <li data-filter="*" class="filter-active">All Work</li>
-            <li data-filter=".filter-design">Digital Design</li>
-            <li data-filter=".filter-development">Development</li>
-            <li data-filter=".filter-strategy">Strategy</li>
-            <li data-filter=".filter-consulting">Consulting</li>
-          </ul><!-- End Portfolio Filters -->
+      <div class="row g-4">
 
-          <div class="row gy-5 isotope-container" data-aos="fade-up" data-aos-delay="300">
-
-            <div class="col-lg-12 portfolio-item isotope-item filter-design">
-              <article class="portfolio-card">
-                <div class="row g-4">
-                  <div class="col-md-6">
-                    <div class="project-visual">
-                      <img src="assets/img/portfolio/portfolio-1.webp" alt="Enterprise Digital Platform" class="img-fluid" loading="lazy">
-                      <div class="project-overlay">
-                        <div class="overlay-content">
-                          <a href="assets/img/portfolio/portfolio-1.webp" class="view-project glightbox" aria-label="View project image">
-                            <i class="bi bi-eye"></i>
-                          </a>
-                          <a href="#" class="project-link" aria-label="View project details">
-                            <i class="bi bi-arrow-up-right"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="project-details">
-                      <div class="project-header">
-                        <span class="project-category">Digital Design</span>
-                        <time class="project-year">2024</time>
-                      </div>
-                      <h3 class="project-title">Enterprise Digital Platform</h3>
-                      <p class="project-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam.</p>
-                      <div class="project-meta">
-                        <span class="client-name">Fortune 500 Company</span>
-                        <div class="project-scope">
-                          <span class="scope-item">UX Design</span>
-                          <span class="scope-item">Development</span>
-                          <span class="scope-item">Strategy</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </article>
+        <div class="col-lg-4 col-md-6 fade-up">
+          <div class="gallery-card">
+            <div class="gallery-placeholder" style="background:linear-gradient(135deg,#d4f5f2,#a5f3ee);">🎤</div>
+            <div class="gallery-body">
+              <h4>Séance de chant</h4>
+              <p>Des mélodies qui réveillent les émotions et créent des connexions magnifiques.</p>
             </div>
-
-            <div class="col-lg-12 portfolio-item isotope-item filter-development">
-              <article class="portfolio-card">
-                <div class="row g-4">
-                  <div class="col-md-6 order-md-2">
-                    <div class="project-visual">
-                      <img src="assets/img/portfolio/portfolio-3.webp" alt="SaaS Product Suite" class="img-fluid" loading="lazy">
-                      <div class="project-overlay">
-                        <div class="overlay-content">
-                          <a href="assets/img/portfolio/portfolio-3.webp" class="view-project glightbox" aria-label="View project image">
-                            <i class="bi bi-eye"></i>
-                          </a>
-                          <a href="#" class="project-link" aria-label="View project details">
-                            <i class="bi bi-arrow-up-right"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6 order-md-1">
-                    <div class="project-details">
-                      <div class="project-header">
-                        <span class="project-category">Development</span>
-                        <time class="project-year">2024</time>
-                      </div>
-                      <h3 class="project-title">SaaS Product Suite</h3>
-                      <p class="project-description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.</p>
-                      <div class="project-meta">
-                        <span class="client-name">Tech Startup</span>
-                        <div class="project-scope">
-                          <span class="scope-item">Full Stack</span>
-                          <span class="scope-item">Cloud Architecture</span>
-                          <span class="scope-item">DevOps</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <div class="col-lg-12 portfolio-item isotope-item filter-strategy">
-              <article class="portfolio-card">
-                <div class="row g-4">
-                  <div class="col-md-6">
-                    <div class="project-visual">
-                      <img src="assets/img/portfolio/portfolio-5.webp" alt="Brand Transformation" class="img-fluid" loading="lazy">
-                      <div class="project-overlay">
-                        <div class="overlay-content">
-                          <a href="assets/img/portfolio/portfolio-5.webp" class="view-project glightbox" aria-label="View project image">
-                            <i class="bi bi-eye"></i>
-                          </a>
-                          <a href="#" class="project-link" aria-label="View project details">
-                            <i class="bi bi-arrow-up-right"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="project-details">
-                      <div class="project-header">
-                        <span class="project-category">Strategy</span>
-                        <time class="project-year">2023</time>
-                      </div>
-                      <h3 class="project-title">Brand Transformation</h3>
-                      <p class="project-description">Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                      <div class="project-meta">
-                        <span class="client-name">Global Corporation</span>
-                        <div class="project-scope">
-                          <span class="scope-item">Brand Strategy</span>
-                          <span class="scope-item">Visual Identity</span>
-                          <span class="scope-item">Guidelines</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <div class="col-lg-12 portfolio-item isotope-item filter-consulting">
-              <article class="portfolio-card">
-                <div class="row g-4">
-                  <div class="col-md-6 order-md-2">
-                    <div class="project-visual">
-                      <img src="assets/img/portfolio/portfolio-6.webp" alt="Digital Transformation" class="img-fluid" loading="lazy">
-                      <div class="project-overlay">
-                        <div class="overlay-content">
-                          <a href="assets/img/portfolio/portfolio-6.webp" class="view-project glightbox" aria-label="View project image">
-                            <i class="bi bi-eye"></i>
-                          </a>
-                          <a href="#" class="project-link" aria-label="View project details">
-                            <i class="bi bi-arrow-up-right"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6 order-md-1">
-                    <div class="project-details">
-                      <div class="project-header">
-                        <span class="project-category">Consulting</span>
-                        <time class="project-year">2024</time>
-                      </div>
-                      <h3 class="project-title">Digital Transformation</h3>
-                      <p class="project-description">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                      <div class="project-meta">
-                        <span class="client-name">Healthcare Provider</span>
-                        <div class="project-scope">
-                          <span class="scope-item">Process Optimization</span>
-                          <span class="scope-item">Technology Audit</span>
-                          <span class="scope-item">Implementation</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <div class="col-lg-12 portfolio-item isotope-item filter-design">
-              <article class="portfolio-card">
-                <div class="row g-4">
-                  <div class="col-md-6">
-                    <div class="project-visual">
-                      <img src="assets/img/portfolio/portfolio-2.webp" alt="E-commerce Experience" class="img-fluid" loading="lazy">
-                      <div class="project-overlay">
-                        <div class="overlay-content">
-                          <a href="assets/img/portfolio/portfolio-2.webp" class="view-project glightbox" aria-label="View project image">
-                            <i class="bi bi-eye"></i>
-                          </a>
-                          <a href="#" class="project-link" aria-label="View project details">
-                            <i class="bi bi-arrow-up-right"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="project-details">
-                      <div class="project-header">
-                        <span class="project-category">Digital Design</span>
-                        <time class="project-year">2024</time>
-                      </div>
-                      <h3 class="project-title">E-commerce Experience</h3>
-                      <p class="project-description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint.</p>
-                      <div class="project-meta">
-                        <span class="client-name">Retail Brand</span>
-                        <div class="project-scope">
-                          <span class="scope-item">User Experience</span>
-                          <span class="scope-item">Interface Design</span>
-                          <span class="scope-item">Conversion Optimization</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <div class="col-lg-12 portfolio-item isotope-item filter-development">
-              <article class="portfolio-card">
-                <div class="row g-4">
-                  <div class="col-md-6 order-md-2">
-                    <div class="project-visual">
-                      <img src="assets/img/portfolio/portfolio-4.webp" alt="Mobile Application" class="img-fluid" loading="lazy">
-                      <div class="project-overlay">
-                        <div class="overlay-content">
-                          <a href="assets/img/portfolio/portfolio-4.webp" class="view-project glightbox" aria-label="View project image">
-                            <i class="bi bi-eye"></i>
-                          </a>
-                          <a href="#" class="project-link" aria-label="View project details">
-                            <i class="bi bi-arrow-up-right"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6 order-md-1">
-                    <div class="project-details">
-                      <div class="project-header">
-                        <span class="project-category">Development</span>
-                        <time class="project-year">2023</time>
-                      </div>
-                      <h3 class="project-title">Mobile Application</h3>
-                      <p class="project-description">Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute.</p>
-                      <div class="project-meta">
-                        <span class="client-name">Financial Services</span>
-                        <div class="project-scope">
-                          <span class="scope-item">iOS Development</span>
-                          <span class="scope-item">Android Development</span>
-                          <span class="scope-item">API Integration</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-            </div>
-
-          </div><!-- End Portfolio Items Container -->
-
+          </div>
         </div>
 
-        <div class="portfolio-conclusion" data-aos="fade-up" data-aos-delay="400">
-          <div class="conclusion-content">
-            <h4>Ready to elevate your business?</h4>
-            <p>Let's discuss how we can transform your digital presence and drive meaningful results for your organization.</p>
-            <div class="conclusion-actions">
-              <a href="#contact" class="primary-action">
-                Start Conversation
-                <i class="bi bi-arrow-right"></i>
-              </a>
-              <a href="#portfolio" class="secondary-action">
-                View All Projects
-              </a>
+        <div class="col-lg-4 col-md-6 fade-up">
+          <div class="gallery-card">
+            <div class="gallery-placeholder" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);">🎲</div>
+            <div class="gallery-body">
+              <h4>Jeux de société</h4>
+              <p>Rires et complicité autour de jeux adaptés et conviviaux.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 fade-up">
+          <div class="gallery-card">
+            <div class="gallery-placeholder" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);">🔤</div>
+            <div class="gallery-body">
+              <h4>Jeux de lettres</h4>
+              <p>Stimulation du langage et de la mémoire dans la bonne humeur.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 fade-up">
+          <div class="gallery-card">
+            <div class="gallery-placeholder" style="background:linear-gradient(135deg,#ede7f6,#d1c4e9);">❓</div>
+            <div class="gallery-body">
+              <h4>Quiz thématiques</h4>
+              <p>Des questions fun pour voyager dans les souvenirs collectifs.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 fade-up">
+          <div class="gallery-card">
+            <div class="gallery-placeholder" style="background:linear-gradient(135deg,#fffde7,#fff9c4);">🌟</div>
+            <div class="gallery-body">
+              <h4>Moments de partage</h4>
+              <p>Chaque séance crée des instants précieux et mémorables.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 fade-up">
+          <div class="gallery-card">
+            <div class="gallery-placeholder" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);">💞</div>
+            <div class="gallery-body">
+              <h4>Lien intergénérationnel</h4>
+              <p>Des animations qui créent du lien et renforcent les liens familiaux.</p>
             </div>
           </div>
         </div>
 
       </div>
 
-    </section><!-- /Portfolio Section -->
+    </div>
+  </section>
 
-    <!-- Team Section -->
-    <section id="team" class="team section">
+  <!-- ====== CONTACT ====== -->
+  <section id="contact">
+    <div class="container">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="subtitle">Team</span>
-        <h2>Meet Our Team</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-5">
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/person/person-f-8.webp" class="img-fluid" alt="Sarah Johnson" loading="lazy">
-              </div>
-              <div class="member-info">
-                <h4>Sarah Johnson</h4>
-                <span>Chief Executive Officer</span>
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas vestibulum tortor quam.</p>
-                <div class="social">
-                  <a href="#"><i class="bi bi-twitter-x"></i></a>
-                  <a href="#"><i class="bi bi-linkedin"></i></a>
-                  <a href="#"><i class="bi bi-instagram"></i></a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="250">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/person/person-m-12.webp" class="img-fluid" alt="Michael Chen" loading="lazy">
-              </div>
-              <div class="member-info">
-                <h4>Michael Chen</h4>
-                <span>Chief Technology Officer</span>
-                <p>Mauris blandit aliquet elit eget tincidunt nibh pulvinar rutrum tellus ac blandit elit eget tincidunt mauris.</p>
-                <div class="social">
-                  <a href="#"><i class="bi bi-twitter-x"></i></a>
-                  <a href="#"><i class="bi bi-linkedin"></i></a>
-                  <a href="#"><i class="bi bi-github"></i></a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/person/person-f-3.webp" class="img-fluid" alt="Emily Rodriguez" loading="lazy">
-              </div>
-              <div class="member-info">
-                <h4>Emily Rodriguez</h4>
-                <span>Creative Director</span>
-                <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec velit neque auctor.</p>
-                <div class="social">
-                  <a href="#"><i class="bi bi-twitter-x"></i></a>
-                  <a href="#"><i class="bi bi-linkedin"></i></a>
-                  <a href="#"><i class="bi bi-dribbble"></i></a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="350">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/person/person-m-7.webp" class="img-fluid" alt="David Thompson" loading="lazy">
-              </div>
-              <div class="member-info">
-                <h4>David Thompson</h4>
-                <span>Head of Operations</span>
-                <p>Curabitur arcu erat accumsan id imperdiet et porttitor at sem nulla facilisi mauris sit amet massa vitae tortor.</p>
-                <div class="social">
-                  <a href="#"><i class="bi bi-twitter-x"></i></a>
-                  <a href="#"><i class="bi bi-linkedin"></i></a>
-                  <a href="#"><i class="bi bi-facebook"></i></a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Team Section -->
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="subtitle">Testimonials</span>
-        <h2>What They Say</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="testimonial-slider swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 4000
-              },
-              "slidesPerView": 1,
-              "spaceBetween": 30,
-              "navigation": {
-                "nextEl": ".swiper-button-next",
-                "prevEl": ".swiper-button-prev"
-              },
-              "breakpoints": {
-                "768": {
-                  "slidesPerView": 2
-                },
-                "1200": {
-                  "slidesPerView": 3
-                }
-              }
-            }
-          </script>
-
-          <div class="swiper-wrapper">
-
-            <!-- Testimonial Slide 1 -->
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="zoom-in" data-aos-delay="200">
-                <div class="testimonial-header">
-                  <img src="assets/img/person/person-f-12.webp" alt="Client" class="img-fluid" loading="lazy">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                </div>
-                <div class="testimonial-body">
-                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit sed eiusmod tempor.</p>
-                </div>
-                <div class="testimonial-footer">
-                  <h5>Jessica Martinez</h5>
-                  <span>UX Designer</span>
-                  <div class="quote-icon">
-                    <i class="bi bi-chat-quote-fill"></i>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Testimonial Slide -->
-
-            <!-- Testimonial Slide 2 -->
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="zoom-in" data-aos-delay="300">
-                <div class="testimonial-header">
-                  <img src="assets/img/person/person-m-8.webp" alt="Client" class="img-fluid" loading="lazy">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                </div>
-                <div class="testimonial-body">
-                  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa.</p>
-                </div>
-                <div class="testimonial-footer">
-                  <h5>David Rodriguez</h5>
-                  <span>Software Engineer</span>
-                  <div class="quote-icon">
-                    <i class="bi bi-chat-quote-fill"></i>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Testimonial Slide -->
-
-            <!-- Testimonial Slide 3 -->
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="zoom-in" data-aos-delay="400">
-                <div class="testimonial-header">
-                  <img src="assets/img/person/person-f-6.webp" alt="Client" class="img-fluid" loading="lazy">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                </div>
-                <div class="testimonial-body">
-                  <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud.</p>
-                </div>
-                <div class="testimonial-footer">
-                  <h5>Amanda Wilson</h5>
-                  <span>Creative Director</span>
-                  <div class="quote-icon">
-                    <i class="bi bi-chat-quote-fill"></i>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Testimonial Slide -->
-
-            <!-- Testimonial Slide 4 -->
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="zoom-in" data-aos-delay="500">
-                <div class="testimonial-header">
-                  <img src="assets/img/person/person-m-12.webp" alt="Client" class="img-fluid" loading="lazy">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                </div>
-                <div class="testimonial-body">
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis.</p>
-                </div>
-                <div class="testimonial-footer">
-                  <h5>Ryan Thompson</h5>
-                  <span>Business Analyst</span>
-                  <div class="quote-icon">
-                    <i class="bi bi-chat-quote-fill"></i>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Testimonial Slide -->
-
-            <!-- Testimonial Slide 5 -->
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="zoom-in" data-aos-delay="600">
-                <div class="testimonial-header">
-                  <img src="assets/img/person/person-f-10.webp" alt="Client" class="img-fluid" loading="lazy">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                </div>
-                <div class="testimonial-body">
-                  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi.</p>
-                </div>
-                <div class="testimonial-footer">
-                  <h5>Rachel Chen</h5>
-                  <span>Project Manager</span>
-                  <div class="quote-icon">
-                    <i class="bi bi-chat-quote-fill"></i>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Testimonial Slide -->
-
-          </div>
-
-          <div class="swiper-navigation">
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Testimonials Section -->
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section light-background">
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
+      <div class="section-title fade-up">
         <span class="subtitle">Contact</span>
-        <h2>Let's Connect</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-5">
-
-            <div class="info-item">
-              <div class="info-icon">
-                <i class="bi bi-chat-dots"></i>
-              </div>
-              <div class="info-content">
-                <h4>Let's Connect</h4>
-                <p>We're here to discuss your vision and explore how we can bring it to life together.</p>
-              </div>
-            </div>
-
-            <div class="contact-details">
-
-              <div class="detail-item">
-                <div class="detail-icon">
-                  <i class="bi bi-envelope-open"></i>
-                </div>
-                <div class="detail-content">
-                  <span class="detail-label">Email us</span>
-                  <span class="detail-value">contact@example.com</span>
-                </div>
-              </div>
-
-              <div class="detail-item">
-                <div class="detail-icon">
-                  <i class="bi bi-telephone-outbound"></i>
-                </div>
-                <div class="detail-content">
-                  <span class="detail-label">Call us</span>
-                  <span class="detail-value">+1 (555) 432-8976</span>
-                </div>
-              </div>
-
-              <div class="detail-item">
-                <div class="detail-icon">
-                  <i class="bi bi-geo-alt-fill"></i>
-                </div>
-                <div class="detail-content">
-                  <span class="detail-label">Visit us</span>
-                  <span class="detail-value">547 Madison Avenue<br>New York, NY 10022</span>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="col-lg-7">
-            <div class="form-wrapper">
-              <div class="form-header">
-                <h3>Send us a message</h3>
-              </div>
-
-              <form action="forms/contact.php" method="post" class="php-email-form">
-
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Full Name</label>
-                      <input type="text" name="name" required="">
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Email Address</label>
-                      <input type="email" name="email" required="">
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label>Subject</label>
-                  <input type="text" name="subject" required="">
-                </div>
-
-                <div class="form-group">
-                  <label for="projectMessage">Message</label>
-                  <textarea name="message" id="projectMessage" rows="5" required=""></textarea>
-                </div>
-
-                <div class="my-3">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-                </div>
-
-                <button type="submit" class="submit-btn">
-                  <span>Send Message</span>
-                  <i class="bi bi-arrow-right"></i>
-                </button>
-
-              </form>
-
-            </div>
-
-          </div>
-
-        </div>
+        <h2>Prenons contact !</h2>
+        <p>N'hésitez pas à me contacter pour en savoir plus sur mes prestations ou pour organiser une première séance.</p>
       </div>
 
-    </section><!-- /Contact Section -->
+      <div class="row gy-5 gx-5">
 
-  </main>
+        <!-- Info -->
+        <div class="col-lg-5 fade-up">
+          <div class="contact-info-card">
+            <h3>Mes coordonnées</h3>
 
-  <footer id="footer" class="footer dark-background">
+            <div class="contact-detail">
+              <div class="icon"><i class="bi bi-telephone"></i></div>
+              <div>
+                <div class="label">Téléphone</div>
+                <div class="value">À compléter</div>
+              </div>
+            </div>
 
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-5 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Axis</span>
-          </a>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            <div class="contact-detail">
+              <div class="icon"><i class="bi bi-envelope"></i></div>
+              <div>
+                <div class="label">E-mail</div>
+                <div class="value">À compléter</div>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="icon"><i class="bi bi-geo-alt"></i></div>
+              <div>
+                <div class="label">Zone d'intervention</div>
+                <div class="value">À compléter</div>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="icon"><i class="bi bi-clock"></i></div>
+              <div>
+                <div class="label">Horaires</div>
+                <div class="value">Sur rendez-vous</div>
+              </div>
+            </div>
+
+            <hr style="border-color:rgba(255,255,255,0.15);margin:28px 0;">
+            <p style="color:rgba(255,255,255,0.6);font-size:0.92rem;margin:0;">
+              <i class="bi bi-info-circle me-2" style="color:var(--teal);"></i>
+              Prestations éligibles APA, PCH et crédit d'impôt à 50%.
+            </p>
+
           </div>
         </div>
 
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-          <h4>Contact Us</h4>
-          <p>A108 Adam Street</p>
-          <p>New York, NY 535022</p>
-          <p>United States</p>
-          <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-          <p><strong>Email:</strong> <span>info@example.com</span></p>
+        <!-- Form -->
+        <div class="col-lg-7 fade-up">
+          <div class="contact-form-card">
+            <h3>Envoyez-moi un message</h3>
+            <form>
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-600" style="font-weight:600;">Nom & Prénom</label>
+                  <input type="text" class="form-control" placeholder="Votre nom complet">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-600" style="font-weight:600;">E-mail</label>
+                  <input type="email" class="form-control" placeholder="votre@email.fr">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label fw-600" style="font-weight:600;">Téléphone (optionnel)</label>
+                <input type="tel" class="form-control" placeholder="06 xx xx xx xx">
+              </div>
+              <div class="mb-3">
+                <label class="form-label fw-600" style="font-weight:600;">Type de service souhaité</label>
+                <select class="form-select">
+                  <option value="">Choisissez une prestation…</option>
+                  <option>Prestation de chant</option>
+                  <option>Quiz thématiques</option>
+                  <option>Jeux de société</option>
+                  <option>Jeux de lettres</option>
+                  <option>Accompagnement des aidants</option>
+                  <option>Autre / Renseignement général</option>
+                </select>
+              </div>
+              <div class="mb-4">
+                <label class="form-label fw-600" style="font-weight:600;">Votre message</label>
+                <textarea class="form-control" rows="4" placeholder="Décrivez votre situation ou posez vos questions…"></textarea>
+              </div>
+              <button type="submit" class="btn-submit">
+                <i class="bi bi-send me-2"></i> Envoyer le message
+              </button>
+            </form>
+          </div>
         </div>
 
       </div>
     </div>
+  </section>
 
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Axis</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> | <a href="https://bootstrapmade.com/tools/">DevTools</a>
+  <!-- ====== FOOTER ====== -->
+  <footer>
+    <div class="container">
+      <div class="row gy-5">
+
+        <div class="col-lg-5 col-md-12">
+          <div class="footer-brand mb-3">
+            <div class="brand-name" style="font-family:Poppins,sans-serif;font-weight:700;font-size:1.4rem;color:#fff;">
+              Vive <span style="color:var(--teal);">l'Animation !</span>
+            </div>
+          </div>
+          <p>Des animations joyeuses et bienveillantes pour les personnes âgées : chant, quiz, jeux de société, jeux de lettres — à domicile ou en établissement.</p>
+          <div class="mt-4">
+            <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-6">
+          <h5>Navigation</h5>
+          <ul>
+            <li><a href="#hero">Accueil</a></li>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#services">Mes prestations</a></li>
+            <li><a href="#financial">Aides financières</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-6">
+          <h5>Mes services</h5>
+          <ul>
+            <li><a href="#services">🎤 Prestation de chant</a></li>
+            <li><a href="#services">❓ Quiz thématiques</a></li>
+            <li><a href="#services">🎲 Jeux de société</a></li>
+            <li><a href="#services">🔤 Jeux de lettres</a></li>
+            <li><a href="#services">💜 Accompagnement aidants</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <hr>
+      <div class="copyright">
+        © 2025 Vive l'Animation ! — Tous droits réservés.
       </div>
     </div>
-
   </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- Scroll to top -->
+  <a href="#hero" id="scrollTop"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script>
+    // Scroll-to-top visibility
+    const scrollBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      scrollBtn.classList.toggle('show', window.scrollY > 400);
+    });
 
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+    // Intersection Observer for fade-up animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+      // Don't re-observe already visible ones (hero elements)
+      if (!el.classList.contains('visible')) {
+        observer.observe(el);
+      }
+    });
+
+    // Smooth active nav highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 80) current = section.id;
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+      });
+    });
+  </script>
 
 </body>
-
 </html>
